@@ -116,14 +116,6 @@ const QUIZ = {
     return answers;
   },
 
-  getQuizAnswers: (lis) => {
-    const inputs =[];
-    for (let li of lis) {
-      inputs.push(li.childNodes[5].value);
-    }
-    return inputs;
-  },
-
   setTimerOnDifficulty(difficulty) {
     if (difficulty === 'easy') {
       QUIZ.initialTimer = 5;
@@ -172,7 +164,7 @@ const QUIZ = {
   },
 
   startNextQuestion: () => {
-    if (QUIZ.crtQuestionIndex === QUIZ.questions.length -1) {
+    if (QUIZ.crtQuestionIndex > QUIZ.questions.length -1) {
       return DOM.renderScore(QUIZ.score, 100, DOM.quizQuestionUl);
     }
     DOM.renderSingleQuiz(QUIZ.questions[QUIZ.crtQuestionIndex], DOM.quizQuestionUl);
